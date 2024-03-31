@@ -67,6 +67,8 @@ composer require std-library/type-guard
 - [`asCallable()`](#ascallable)
 - [`not()->null()`](#notnull)
 - [`asArray()`](#asarray)
+- [`asCountable()`](#ascountable)
+- [`asIterable()`](#asiterable)
 
 ### `as`
 
@@ -138,6 +140,22 @@ Asserts and narrows down the type of the given variable to an array.
 
 ```php
 $variable = type($variable)->asArray();
+```
+
+### `asCountable()`
+
+Asserts and narrows down the type of the given variable to a countable.
+
+```php
+$variable = type($variable)->asCountable();
+```
+
+### `asIterable()`
+
+Asserts and narrows down the type of the given variable to an iterable.
+
+```php
+$variable = type($variable)->asIterable();
 ```
 
 ------

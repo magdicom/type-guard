@@ -130,6 +130,38 @@ final readonly class Type
     }
 
     /**
+     * Asserts and narrow down the type to countable.
+     *
+     * @phpstan-assert-if-true array $this->variable
+     *
+     * @return (TVariable is countable ? TVariable : never)
+     */
+    public function asCountable(): array
+    {
+        if (! is_countable($this->variable)) {
+            throw new TypeError('Variable is not a countable.');
+        }
+
+        return $this->variable;
+    }
+
+    /**
+     * Asserts and narrow down the type to an iterable.
+     *
+     * @phpstan-assert-if-true array $this->variable
+     *
+     * @return (TVariable is iterable ? TVariable : never)
+     */
+    public function asIterable(): array
+    {
+        if (! is_iterable($this->variable)) {
+            throw new TypeError('Variable is not an iterable.');
+        }
+
+        return $this->variable;
+    }
+
+    /**
      * Asserts and narrow down the type to a callable.
      *
      * @phpstan-assert callable $this->variable
